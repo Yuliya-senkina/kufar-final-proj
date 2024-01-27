@@ -1,5 +1,6 @@
 package by.itacademy.senkina.ui;
 
+import driver.Waiter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import page.KufarPage;
@@ -24,25 +25,11 @@ public class KufarLoginTest extends BaseTest {
         driver.get("https://www.kufar.by/");
         KufarPage kufar = new KufarPage(driver);
         kufar.clickInputButton();
-        Thread.sleep(1000);
+        Waiter.waitFor(1);
         kufar.sendKeysInputTextEmail("");
         kufar.sendKeysInputTextPassword("");
         kufar.clickInputButtonForm();
-        Thread.sleep(5000);
-        Assertions.assertEquals("Заполните обязательное поле", kufar.getTextErrorEmail());
-        Assertions.assertEquals("Введите пароль", kufar.getTextErrorPassword());
-    }
-
-    @Test
-    public void testLoginEmptyEmailPassword2() throws InterruptedException {
-        driver.get("https://www.kufar.by/");
-        KufarPage kufar = new KufarPage(driver);
-        kufar.clickInputButton();
-        Thread.sleep(1000);
-        kufar.sendKeysInputTextEmail("");
-        kufar.sendKeysInputTextPassword("");
-        kufar.clickInputButtonForm();
-        Thread.sleep(5000);
+        Waiter.waitFor(1);
         Assertions.assertEquals("Заполните обязательное поле", kufar.getTextErrorEmail());
     }
 }

@@ -12,10 +12,12 @@ public class KufarPage {
     public String inputText = "//div[@class='styles_with_sms_block__6_xkj']//div//p";
     public String textErrorEmail = "//div[@data-name='authorization_error_text']";
     WebDriver driver;
+
     public KufarPage(WebDriver driver) {
 
         this.driver = driver;
     }
+
     public void clickInputButton() {
 
         driver.findElement(By.xpath(inputButton)).click();
@@ -25,6 +27,7 @@ public class KufarPage {
 
         driver.findElement(By.xpath(inputTextEmail)).sendKeys(email);
     }
+
     public void sendKeysInputRandomTextEmail() {
 
         driver.findElement(By.xpath(inputTextEmail)).sendKeys(RandomUserData.getRandomCorrectEmail());
@@ -44,6 +47,7 @@ public class KufarPage {
 
         driver.findElement(By.xpath(inputButtonForm)).click();
     }
+
     public String getTextError() {
 
         return driver.findElement(By.xpath(inputText)).getText();
