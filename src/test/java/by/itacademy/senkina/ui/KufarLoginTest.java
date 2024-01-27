@@ -7,7 +7,7 @@ import page.KufarPage;
 public class KufarLoginTest extends BaseTest {
 
     @Test
-    public void testKvitkiEmailPasswordClick() throws InterruptedException {
+    public void testKufarEmailPasswordClick() throws InterruptedException {
         driver.get("https://www.kufar.by/");
         KufarPage kufar = new KufarPage(driver);
         kufar.clickInputButton();
