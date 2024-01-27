@@ -12,6 +12,7 @@ public class BaseTest {
     public void start() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.get("https://www.kufar.by/");
     }
 
     @AfterEach

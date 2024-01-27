@@ -11,6 +11,9 @@ public class KufarPage {
     public String inputButtonForm = "//div[@data-name='login_submit']//button[@type='submit']";
     public String inputText = "//div[@class='styles_with_sms_block__6_xkj']//div//p";
     public String textErrorEmail = "//div[@data-name='authorization_error_text']";
+    public String fieldForSearch = "//input[@class='styles_input__IvCG7']";
+    public String buttonSearch = "//button[@class='styles_search_button__Ro1wM']";
+    public String titleSearch = "//h1[@class='styles_title__OnM2K']";
     WebDriver driver;
 
     public KufarPage(WebDriver driver) {
@@ -58,4 +61,18 @@ public class KufarPage {
         return driver.findElement(By.xpath(textErrorEmail)).getText();
     }
 
+    public void sendTextForSearch(String name) {
+
+        driver.findElement(By.xpath(fieldForSearch)).sendKeys(name);
+
+    }
+
+    public void clickInputButtonSearch() {
+
+        driver.findElement(By.xpath(buttonSearch)).click();
+    }
+    public String getTextTitleSeach() {
+
+        return driver.findElement(By.xpath(titleSearch)).getText();
+    }
 }
