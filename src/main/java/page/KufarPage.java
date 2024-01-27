@@ -14,6 +14,15 @@ public class KufarPage {
     public String fieldForSearch = "//input[@class='styles_input__IvCG7']";
     public String buttonSearch = "//button[@class='styles_search_button__Ro1wM']";
     public String titleSearch = "//h1[@class='styles_title__OnM2K']";
+    public String inputButtonChooseRegion = "//div[@class='styles_region__qknLB']";
+    public String dropDownRegion = "//select[@data-testid=\"kufar-region-switcher-popup-region\"]";
+    public String dropDownGomelRegion = " //option[@value='2']";
+    public String inputButtonChoseFinalRegion = " //button[@data-testid='kufar-region-switcher-popup-submit-button']";
+    public String linkMobilePhones = "//a[@id=\"17000\"]";
+    public String chooseCategoryMobilePhones = "//span[@class='styles_link__text__yW1k7 styles_link__text--menu-tree__jVaR7']";
+    public String chooseCreater = "//div[@class='styles_inputContainer__NLXKe']//div[@class='styles_iconsContainer__hgUaO']//option[@value='5']";
+    public String inputButtonFind = "//button[@data-name='filter-submit-button']";
+
     WebDriver driver;
 
     public KufarPage(WebDriver driver) {
@@ -71,8 +80,50 @@ public class KufarPage {
 
         driver.findElement(By.xpath(buttonSearch)).click();
     }
+
     public String getTextTitleSeach() {
 
         return driver.findElement(By.xpath(titleSearch)).getText();
     }
+
+    public void clickInputButtonChooseRegion() {
+
+        driver.findElement(By.xpath(inputButtonChooseRegion)).click();
+    }
+
+    public void clickDropDownRegion() {
+
+        driver.findElement(By.xpath(dropDownRegion)).click();
+    }
+
+    public void clickDropDownGomelRegion() {
+
+        driver.findElement(By.xpath(dropDownGomelRegion)).click();
+    }
+
+    public void clickInputButtonChoseFinalRegion() {
+
+        driver.findElement(By.xpath(inputButtonChoseFinalRegion)).click();
+    }
+
+    public void clickChooseLinkMobilePhones() {
+
+        driver.findElement(By.xpath(linkMobilePhones)).click();
+    }
+
+    public void clickChooseCategoryMobilePhones() {
+
+        driver.findElement(By.xpath(chooseCategoryMobilePhones)).click();
+    }
+
+    public void clickChooseCreater() {
+
+        driver.findElement(By.xpath(chooseCreater)).click();
+    }
+
+    public void clickInputButtonFind() {
+
+        driver.findElement(By.xpath(inputButtonFind)).click();
+    }
+
 }

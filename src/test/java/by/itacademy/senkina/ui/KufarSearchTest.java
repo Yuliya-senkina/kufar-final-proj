@@ -16,4 +16,21 @@ public class KufarSearchTest extends BaseTest  {
         Waiter.waitFor(1);
         Assertions.assertEquals("«Iphone 15 pro Max» в Беларуси", kufar.getTextTitleSeach());
     }
+
+    @Test
+    public void testSearchIphoneGomel() throws InterruptedException {
+        KufarPage kufar = new KufarPage(driver);
+        kufar.clickInputButtonChooseRegion();
+        kufar.clickDropDownRegion();
+        kufar.clickDropDownGomelRegion();
+        kufar.clickInputButtonChoseFinalRegion();
+        kufar.clickChooseLinkMobilePhones();
+        Waiter.waitFor(1);
+        kufar.clickChooseCategoryMobilePhones();
+        kufar.clickChooseCreater();
+        Waiter.waitFor(1);
+        kufar.clickInputButtonFind();
+        Waiter.waitFor(1);
+        Assertions.assertEquals("Мобильные телефоны Apple iPhone в Гомельской области", kufar.getTextTitleSeach());
+    }
 }
