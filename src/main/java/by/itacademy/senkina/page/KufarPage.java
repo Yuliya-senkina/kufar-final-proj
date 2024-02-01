@@ -35,7 +35,7 @@ public class KufarPage {
     public void clickInputButton() {
 
         driver.findElement(By.xpath(inputButton)).click();
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Click on input button");
     }
 
@@ -87,14 +87,14 @@ public class KufarPage {
     public void sendTextForSearch(String name) {
 
         driver.findElement(By.xpath(fieldForSearch)).sendKeys(name);
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Send text for search");
     }
 
     public void clickInputButtonSearch() {
 
         driver.findElement(By.xpath(buttonSearch)).click();
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Click on input button search");
     }
 
@@ -132,7 +132,7 @@ public class KufarPage {
     public void clickChooseLinkMobilePhones() {
 
         driver.findElement(By.xpath(linkMobilePhones)).click();
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Click on link mobile phones");
     }
 
@@ -145,14 +145,14 @@ public class KufarPage {
     public void clickChooseCreater() {
 
         driver.findElement(By.xpath(chooseCreater)).click();
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Click on input button choose creater");
     }
 
     public void clickInputButtonFind() {
 
         driver.findElement(By.xpath(inputButtonFind)).click();
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Click on input button find");
     }
 
