@@ -5,6 +5,7 @@ import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 
 public class KufarTestApi {
@@ -22,7 +23,8 @@ public class KufarTestApi {
         JsonObject jsonObject = JsonParser.parseString(body1).getAsJsonObject();
         given().body(jsonObject).header("Content-Type","application/json")
                 .post("https://www.kufar.by/l/api/login/v2/auth/signin?token_type=user")
-                .then().log().all();
+                .then().statusCode(401).
+                body("message", equalTo("account inactive"));
     }
 
     @Test
@@ -38,7 +40,8 @@ public class KufarTestApi {
         JsonObject jsonObject = JsonParser.parseString(body1).getAsJsonObject();
         given().body(jsonObject).header("Content-Type","application/json")
                 .post("https://www.kufar.by/l/api/login/v2/auth/signin?token_type=user")
-                .then().log().all();
+                .then().statusCode(401).
+                body("message", equalTo("authentication failed"));
     }
 
     @Test
@@ -54,7 +57,9 @@ public class KufarTestApi {
         JsonObject jsonObject = JsonParser.parseString(body1).getAsJsonObject();
         given().body(jsonObject).header("Content-Type","application/json")
                 .post("https://www.kufar.by/l/api/login/v2/auth/signin?token_type=user")
-                .then().log().all();
+                .then().statusCode(400).
+                body("message", equalTo("invalid input"));
+
     }
 
 }

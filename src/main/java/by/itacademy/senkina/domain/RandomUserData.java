@@ -1,4 +1,4 @@
-package domain;
+package by.itacademy.senkina.domain;
 
 import com.github.javafaker.Faker;
 

@@ -1,4 +1,4 @@
-package driver;
+package by.itacademy.senkina.driver;
 
 public class Waiter {
     public static void waitFor(int seconds) {
