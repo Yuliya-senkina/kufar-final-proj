@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.time.Duration;
+
 public class KufarPage {
     public String inputButton = "//div[@data-testid='login_button']";
     public String inputTextEmail = "//input[@id='login']";
@@ -35,7 +38,7 @@ public class KufarPage {
     public void clickInputButton() {
 
         driver.findElement(By.xpath(inputButton)).click();
-        Waiter.waitFor(2);
+        Waiter.waiter(driver);
         logger.info("Click on input button");
     }
 
@@ -66,7 +69,7 @@ public class KufarPage {
     public void clickInputButtonForm() {
 
         driver.findElement(By.xpath(inputButtonForm)).click();
-        Waiter.waitFor(2);
+        Waiter.waiter(driver);
         logger.info("Click on input button form");
     }
 

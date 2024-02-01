@@ -1,6 +1,5 @@
 package by.itacademy.senkina.ui;
 
-import by.itacademy.senkina.driver.Waiter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.apache.logging.log4j.LogManager;
