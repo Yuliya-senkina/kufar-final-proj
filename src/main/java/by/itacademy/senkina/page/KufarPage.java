@@ -66,7 +66,7 @@ public class KufarPage {
     public void clickInputButtonForm() {
 
         driver.findElement(By.xpath(inputButtonForm)).click();
-        Waiter.waitFor(1);
+        Waiter.waitFor(2);
         logger.info("Click on input button form");
     }
 
