@@ -15,6 +15,8 @@ public class KufarTestApi {
             "  \"recaptcha_platform\": \"web\",\n  \"lang\": \"ru\",\n  \"login\": \"test@test.by\"\n}";
     public String bodyInvalidData = "{\n  \"password\": \"123\",\n  \"recaptcha_user_response\": \"\",\n  \"recaptcha_secret_version\": \"v1\",\n" +
             "  \"recaptcha_platform\": \"web\",\n  \"lang\": \"ru\",\n  \"login\": \"123@mail.by\"\n}";
+    public String bodyValidData = "{\n  \"password\": \"Test.test2019\",\n  \"recaptcha_user_response\": \"\",\n  \"recaptcha_secret_version\": \"v1\",\n" +
+            "  \"recaptcha_platform\": \"web\",\n  \"lang\": \"ru\",\n  \"login\": \"test.test.2019@internet.ru\"\n}";
     public String bodyEmptyData = "{\n  \"password\": \"\",\n  \"recaptcha_user_response\": \"\",\n  \"recaptcha_secret_version\": \"v1\",\n" +
             "  \"recaptcha_platform\": \"web\",\n  \"lang\": \"ru\",\n  \"login\": \"\"\n}";
 
@@ -37,6 +39,16 @@ public class KufarTestApi {
                 .post("https://www.kufar.by/l/api/login/v2/auth/signin?token_type=user")
                 .then().statusCode(401).
                 body("message", equalTo("authentication failed"));
+        logger.info("Test passed \n");
+    }
+
+    @Test
+    public void checkLoginWithValidData(){
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        JsonObject jsonObject = JsonParser.parseString(bodyValidData).getAsJsonObject();
+        given().body(jsonObject).header("Content-Type","application/json")
+                .post("https://www.kufar.by/l/api/login/v2/auth/signin?token_type=user")
+                .then().statusCode(200);
         logger.info("Test passed \n");
     }
 

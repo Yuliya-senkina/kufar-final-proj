@@ -27,6 +27,10 @@ public class KufarPage {
     public String chooseCategoryMobilePhones = "//span[@class='styles_link__text__yW1k7 styles_link__text--menu-tree__jVaR7']";
     public String chooseCreater = "//div[@class='styles_inputContainer__NLXKe']//div[@class='styles_iconsContainer__hgUaO']//option[@value='5']";
     public String inputButtonFind = "//button[@data-name='filter-submit-button']";
+    public String inputButtonClose = "//button[@class='styles_button_close__VnFfB']";
+    public String inputButtonProfile = "//div[@class='styles_avatar-block__ygFCL']";
+    public String linkSittings = "//a[@data-testid=\"profile_menu_settings_link\"]//span[@class='styles_profile-menu__text__U6ELw']";
+    public String textEmail = "//div[@class='styles_profile_data_item__UFEcW styles_profile_data_item-email__XQ67h']//p[2]";
     private static final Logger logger = LogManager.getLogger();
     WebDriver driver;
 
@@ -157,6 +161,30 @@ public class KufarPage {
         driver.findElement(By.xpath(inputButtonFind)).click();
         Waiter.waitFor(2);
         logger.info("Click on input button find");
+    }
+    public void clickInputButtonClose() {
+
+        driver.findElement(By.xpath(inputButtonClose)).click();
+        Waiter.waiter(driver);
+        logger.info("Click on input button profile");
+    }
+    public void clickInputButtonProfile() {
+
+        driver.findElement(By.xpath(inputButtonProfile)).click();
+        Waiter.waiter(driver);
+        logger.info("Click on input button profile");
+    }
+
+    public void clickInputLinkSittings() {
+
+        driver.findElement(By.xpath(linkSittings)).click();
+        Waiter.waiter(driver);
+        logger.info("Click on input button sittings");
+    }
+    public String getTextEmail() {
+        String actualResult =  driver.findElement(By.xpath(textEmail)).getText();
+        logger.info("Actual text title email: " + actualResult);
+        return actualResult;
     }
 
 }

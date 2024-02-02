@@ -33,4 +33,19 @@ public class KufarLoginTest extends BaseTest {
         Assertions.assertEquals("Заполните обязательное поле", kufar.getTextErrorEmail());
         logger.info("Test passed \n");
     }
+
+    @Test
+    public void testLoginWithValidData() throws InterruptedException {
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        KufarPage kufar = new KufarPage(driver);
+        kufar.clickInputButton();
+        kufar.sendKeysInputTextEmail("test.test.2019@internet.ru");
+        kufar.sendKeysInputTextPassword("Test.test2019");
+        kufar.clickInputButtonForm();
+        kufar.clickInputButtonClose();
+        kufar.clickInputButtonProfile();
+        kufar.clickInputLinkSittings();
+        Assertions.assertEquals("test.test.2019@internet.ru", kufar.getTextEmail());
+        logger.info("Test passed \n");
+    }
 }
